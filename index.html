@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Apresentation</title>
+</head>
+
+<body>        
+    <canvas id="canvas"></canvas>
+    <div id="texto">
+        <h1 data-value="HI, I'M BERNARDO">HI, I'M BERNARDO</h1>
+        <h3 class="desc">I have 22y, Brazilian, open to new proposals.<br>I started my journey in 2022 with Front-end development, <br>
+        specializing in HTML, CSS, JavaScript and languages ​like Python and Django framework.<br>
+        Planning to go full-stack. <br> Actually working at Information Technology (IT).</h3>
+    <a id="gh-link" class="meta-link" href="https://github.com/beerts" target="_blank">
+    <span>GitHub_</span>
+    </a>
+
+    <a id="lk-link" class="meta-link" href="https://www.linkedin.com/in/bernardo-teixeira-341134272/" target="_blank">
+
+    <span >Linkedin_</span>
+</a>
+    </div>
+
+    <script type="text/javascript">
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let interval = null;
+
+document.querySelector("h1").onmouseover = event => {  
+  let iteration = 2;
+  
+  clearInterval(interval);
+  
+  interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if(index < iteration) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26  )]
+      })
+      .join("");
+    
+    if(iteration >= event.target.dataset.value.length){ 
+      clearInterval(interval);
+    }
+    
+    iteration += 1 / 3;
+  }, 30);
+}
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        var texts =  "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ" .split('');
+        var fontSize = 15;
+
+        var columns = canvas.width/fontSize;
+        var drops = [];
+        for(var x =0; x < columns; x++){
+            drops[x] = 0;
+        }
+        function draw(){
+            ctx.fillStyle = 'rgba(255,255,255,255)';
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = 'black';
+            ctx.font = fontSize+ 'px arial';
+            for(var i =0; i < drops.length; i++){
+                var text = texts[Math.floor(Math.random()*texts.length)];
+                ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+                if(drops[i]*fontSize > canvas.height || Math.random() > 0.95){
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw,50);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+body{
+    padding: 0;
+    font-family: 'DinaRemaster';
+    background-color: #000000;
+    color:rgba(0, 0, 0, 0.925);
+    line-height: 1.5  ;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+ /* Estilos gerais */
+#canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Coloca o canvas atrás do texto */
+}
+
+h1 {
+  font-family: 'DinaRemaster';
+  font-size:70px;
+  color: rgb(0, 0, 0);
+  padding: 0rem clamp(1rem, 2vw, 3rem);
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+  display:inline-block;
+  margin-bottom: 0;
+  
+}
+
+  
+  #gh-link {
+    position:sticky;
+    border: rgb(0, 0, 0) solid thin;
+
+  }
+
+  #lk-link {
+    position:sticky;
+    border: rgb(0, 0, 0) solid thin;
+    
+  }
+  .meta-link {
+    align-items: center;
+    color: rgba(0, 0, 0, 0.146);
+    backdrop-filter: blur(21px);
+    bottom: 10px;
+    cursor: pointer;  
+    display:inline-block;
+    gap: 5px;
+    padding: 1%;
+    margin: 1%;
+    position: fixed;
+    text-decoration: none;
+    transition: background-color 400ms, border-color 400ms;
+    z-index: 10000;
+  }
+  
+  .meta-link:hover {
+    background-color: rgba(183, 183, 183, 0.982);
+    border: 1px solid rgb(0, 0, 0); 
+    
+
+  }
+  
+  .meta-link > i, .meta-link > span {
+    height: 20px;
+    line-height: 20px;
+  }
+  
+  .meta-link > span {
+    color:rgb(8, 8, 8);
+    font-family: "DinaRemaster";
+    font-weight: 900;
+  }
+
+  .desc{
+    font-size: 25px;
+    margin: 3%;
+    padding: 1%;
+
+  }
